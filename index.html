@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardoso Pré-Moldados | Blocos e Artefatos de Concreto no DF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#f8fafc;--white:#ffffff;--warm:#f1f5f9;--sand:#e2e8f0;
+            --accent:#ea580c;--accent-dark:#c2410c;--accent-glow:rgba(234,88,12,0.15);
+            --green:#25D366;
+            --dark:#0f172a;--text:#334155;--muted:#64748b;--light-text:#94a3b8;
+            --border:rgba(15,23,42,0.08);
+            --radius:20px;--radius-sm:12px;
+            --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md:0 8px 30px rgba(0,0,0,0.08);
+            --shadow-lg:0 20px 60px rgba(0,0,0,0.12);
+        }
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+        /* ===== TOP BANNER (logo strip) ===== */
+        .top-banner{background:var(--dark);height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+        .top-banner img{height:100%;transform:scale(2.2);mix-blend-mode:lighten;filter:contrast(1.15);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, black 55%, transparent 100%);mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, black 55%, transparent 100%)}
+
+        /* ===== NAV ===== */
+        .nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(248,250,252,0.9);border-bottom:1px solid var(--border);padding:0 clamp(20px,4vw,60px)}
+        .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px}
+        .nav-brand-link{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--dark);text-decoration:none;letter-spacing:0.5px}
+        .nav-links{display:flex;gap:28px;list-style:none}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;letter-spacing:0.5px;transition:color .2s}
+        .nav-links a:hover{color:var(--accent-dark)}
+        .nav-cta{background:var(--accent);color:#fff;text-decoration:none;padding:10px 22px;border-radius:100px;font-weight:600;font-size:0.85rem;transition:all .2s;box-shadow:0 2px 12px rgba(234,88,12,0.3)}
+        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(234,88,12,0.45)}
+
+        /* ===== HERO ===== */
+        .hero{min-height:92vh;display:flex;align-items:center;justify-content:center;padding:80px clamp(20px,4vw,60px) 60px;background:var(--white);position:relative;overflow:hidden}
+        .hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,var(--accent-glow),transparent 60%),radial-gradient(circle at 20% 80%,rgba(226,232,240,0.5),transparent 40%);pointer-events:none}
+        .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4;pointer-events:none}
+        .hero-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;text-align:center}
+        
+        .hero-carousel{width:100%;max-width:900px;aspect-ratio:16/9;position:relative;margin-top:60px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--dark)}
+        .carousel-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease;will-change:opacity}
+        .carousel-slide.active{opacity:1;z-index:1}
+        .carousel-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:2}
+        .carousel-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:all .3s}
+        .carousel-dot.active{background:var(--accent);box-shadow:0 0 10px rgba(234,88,12,0.6);transform:scale(1.1)}
+        
+        .hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--accent-glow);border:1px solid rgba(234,88,12,0.35);padding:8px 18px;border-radius:100px;font-size:0.78rem;font-weight:600;color:var(--accent-dark);letter-spacing:1px;text-transform:uppercase;margin-bottom:28px}
+        .hero-pill span{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 2s ease infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+        .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,4.2rem);font-weight:800;line-height:1.08;color:var(--dark);margin-bottom:20px;letter-spacing:-1px}
+        .hero h1 .highlight{color:var(--accent-dark);position:relative}
+        .hero h1 .highlight::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:8px;background:var(--accent);opacity:0.25;border-radius:4px;z-index:-1}
+        .hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.7;margin-bottom:36px;max-width:540px;margin-left:auto;margin-right:auto}
+        .hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+        .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;text-decoration:none;padding:16px 32px;border-radius:100px;font-weight:600;font-size:1rem;transition:all .25s;box-shadow:0 4px 20px rgba(37,211,102,0.3)}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
+        .btn-primary svg{width:22px;height:22px;fill:#fff}
+        .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);text-decoration:none;padding:16px 28px;border-radius:100px;font-weight:600;font-size:0.95rem;border:2px solid var(--border);transition:all .25s}
+        .btn-secondary:hover{border-color:var(--accent);color:var(--accent-dark)}
+        
+        .hero-stat-row{display:flex;gap:40px;margin-top:50px;padding-top:28px;border-top:1px solid var(--border);justify-content:center;flex-wrap:wrap}
+        .hero-stat h4{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:var(--dark)}
+        .hero-stat p{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+
+        /* ===== CATALOG ===== */
+        .catalog{padding:120px clamp(20px,4vw,60px);background:var(--bg)}
+        .catalog-inner{max-width:1200px;margin:0 auto}
+        .section-label{font-size:0.78rem;font-weight:600;color:var(--accent-dark);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+        .section-heading{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--dark);margin-bottom:16px;letter-spacing:-0.5px}
+        .section-desc{color:var(--muted);font-size:1rem;line-height:1.7;max-width:500px;margin-bottom:60px}
+        .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .35s ease;cursor:default}
+        .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(234,88,12,0.3)}
+        .card-img{width:100%;height:280px;object-fit:cover;transition:transform .5s ease}
+        .card:hover .card-img{transform:scale(1.04)}
+        .zoom-img{transform:scale(1.8)}
+        .card:hover .zoom-img{transform:scale(1.85)}
+        .card-body{padding:28px;position:relative;z-index:2;background:var(--white)}
+        .card-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+        .card-body p{color:var(--muted);font-size:0.88rem;line-height:1.65;margin-bottom:20px}
+        .card-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent-dark);font-weight:600;font-size:0.85rem;text-decoration:none;transition:gap .2s}
+        .card-link:hover{gap:10px}
+        .card-link svg{width:16px;height:16px;fill:none;stroke:var(--accent-dark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+        .card-link:hover svg{transform:translateX(2px)}
+
+        /* ===== LOCATION ===== */
+        .location{padding:120px clamp(20px,4vw,60px);background:var(--white);border-top:1px solid var(--border)}
+        .location-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .location-map{border-radius:var(--radius);overflow:hidden;height:420px;box-shadow:var(--shadow-lg);border:1px solid var(--border)}
+        .location-map iframe{width:100%;height:100%;border:none}
+        .loc-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+        .loc-icon{width:44px;height:44px;background:var(--accent-glow);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .loc-icon svg{width:20px;height:20px;fill:var(--accent-dark)}
+        .loc-detail h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.95rem;color:var(--dark);margin-bottom:3px}
+        .loc-detail p{font-size:0.85rem;color:var(--muted);line-height:1.5}
+        .loc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+        .loc-tag{background:var(--warm);color:var(--text);padding:8px 16px;border-radius:100px;font-size:0.78rem;font-weight:500}
+
+        /* ===== CTA ===== */
+        .cta{padding:100px clamp(20px,4vw,60px);background:var(--dark);text-align:center;position:relative;overflow:hidden}
+        .cta::before{content:'';position:absolute;top:-50%;left:-20%;width:60%;height:200%;background:radial-gradient(circle,rgba(234,88,12,0.1),transparent 60%);pointer-events:none}
+        .cta-inner{max-width:600px;margin:0 auto;position:relative;z-index:2}
+        .cta h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:-0.5px}
+        .cta p{color:rgba(255,255,255,0.6);font-size:1.05rem;margin-bottom:36px;line-height:1.6}
+
+        /* ===== FOOTER ===== */
+        .footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);padding:60px clamp(20px,4vw,60px) 30px;color:rgba(255,255,255,0.5)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px}
+        .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+        .footer-brand img{height:50px;width:50px;border-radius:10px;object-fit:cover;mix-blend-mode:lighten;filter:contrast(1.15)}
+        .footer-brand span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff}
+        .footer h5{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px}
+        .footer p,.footer a{font-size:0.88rem;line-height:2;text-decoration:none;display:block;color:rgba(255,255,255,0.5);transition:color .2s}
+        .footer a:hover{color:var(--accent)}
+        .footer-bottom{text-align:center;margin-top:50px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);font-size:0.75rem;color:rgba(255,255,255,0.3)}
+
+        /* ===== WA FLOAT ===== */
+        .wa-float{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .25s;text-decoration:none}
+        .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.55)}
+        .wa-float svg{width:30px;height:30px;fill:#fff}
+
+        /* ===== FADE ===== */
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:900px){
+            .catalog-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+            .location-inner{grid-template-columns:1fr}
+            .location-map{height:280px}
+            .footer-grid{grid-template-columns:1fr}
+            .nav-links{display:none}
+        }
+        @media(max-width:600px){
+            .top-banner{height:120px}
+            .top-banner img{transform:scale(2.5)}
+            .nav{padding:0 16px}
+            .nav-inner{height:50px}
+            .nav-brand-link{font-size:0.9rem}
+            .nav-cta{padding:8px 16px;font-size:0.78rem}
+            .hero{padding:60px 20px 50px;min-height:auto}
+            .hero-carousel{margin-top:40px;border-radius:var(--radius-sm)}
+            .hero h1{font-size:2.2rem;letter-spacing:-0.5px}
+            .hero-pill{font-size:0.7rem;padding:6px 14px}
+            .hero-sub{font-size:0.95rem;margin-bottom:28px}
+            .btn-primary{padding:14px 28px;font-size:0.9rem;width:100%;justify-content:center}
+            .btn-secondary{padding:14px 24px;font-size:0.88rem;width:100%;justify-content:center}
+            .hero-actions{flex-direction:column;gap:10px;width:100%}
+            .hero-stat-row{gap:20px;flex-wrap:wrap}
+            .hero-stat h4{font-size:1.4rem}
+            .hero-stat p{font-size:0.7rem}
+            .catalog,.location{padding:70px 20px}
+            .section-heading{font-size:1.6rem}
+            .section-label{font-size:0.72rem}
+            .section-desc{font-size:0.9rem;margin-bottom:36px}
+            .catalog-grid{max-width:100%}
+            .card-img{height:240px}
+            .card-body{padding:22px}
+            .card-body h3{font-size:1.05rem}
+            .card-body p{font-size:0.84rem}
+            .location-map{height:240px;border-radius:var(--radius-sm)}
+            .loc-detail{gap:12px;margin-bottom:16px}
+            .loc-icon{width:38px;height:38px}
+            .loc-icon svg{width:18px;height:18px}
+            .loc-detail h4{font-size:0.88rem}
+            .loc-detail p{font-size:0.82rem}
+            .loc-tags{gap:6px;margin-top:20px}
+            .loc-tag{font-size:0.72rem;padding:6px 12px}
+            .cta{padding:70px 20px}
+            .cta h2{font-size:1.5rem}
+            .cta p{font-size:0.92rem}
+            .cta .btn-primary{width:100%;justify-content:center}
+            .footer{padding:40px 20px 24px}
+            .footer-grid{gap:30px}
+            .footer-brand span{font-size:0.95rem}
+            .footer h5{font-size:0.72rem;margin-bottom:12px}
+            .footer p,.footer a{font-size:0.82rem;line-height:1.8}
+            .footer-bottom{margin-top:30px;font-size:0.68rem}
+            .wa-float{width:52px;height:52px;bottom:18px;right:18px}
+            .wa-float svg{width:26px;height:26px}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="wa-float" target="_blank" title="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- TOP BANNER WITH LOGO -->
+    <div class="top-banner">
+        <img src="imagens/logo.jpg" alt="Logo Cardoso">
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand-link">Cardoso Pré-Moldados</a>
+            <ul class="nav-links">
+                <li><a href="#catalog">Produtos</a></li>
+                <li><a href="#location">Localização</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="nav-cta" target="_blank">Orçamento →</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-pill"><span></span> Park Way • Brasília - DF</div>
+            <h1><span class="highlight">Cardoso</span><br>Pré-Moldados</h1>
+            <p class="hero-sub">Blocos e artefatos de concreto de alta resistência. Qualidade, agilidade e entrega para todo o Distrito Federal e entorno.</p>
+            
+            <div class="hero-actions">
+                <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn-primary" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Solicitar Orçamento
+                </a>
+                <a href="#catalog" class="btn-secondary">Ver Produtos ↓</a>
+            </div>
+            
+            <div class="hero-carousel reveal">
+                <img src="imagens/hero-obra.jpg" alt="Obra em andamento utilizando blocos da Cardoso Pré-Moldados" class="carousel-slide active">
+                <img src="imagens/hero-patio.jpg" alt="Pátio da fábrica com paletes de blocos" class="carousel-slide">
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                    <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                </div>
+            </div>
+            
+            <div class="hero-stat-row">
+                <div class="hero-stat"><h4>DF</h4><p>Todo o Distrito Federal</p></div>
+                <div class="hero-stat"><h4>08–17h</h4><p>Seg a Sex · Sáb 08–12h</p></div>
+                <div class="hero-stat"><h4>100%</h4><p>Qualidade</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="catalog" id="catalog">
+        <div class="catalog-inner">
+            <p class="section-label reveal">Catálogo</p>
+            <h2 class="section-heading reveal">Nossos Produtos</h2>
+            <p class="section-desc reveal">Pré-moldados fabricados com rigoroso controle de qualidade, prontos para sua obra.</p>
+            <div class="catalog-grid">
+                <div class="card reveal">
+                    <img src="imagens/blocos.jpg" alt="Blocos de Concreto" class="card-img">
+                    <div class="card-body">
+                        <h3>Blocos de Concreto</h3>
+                        <p>Blocos para alvenaria estrutural e alvenaria de vedação. Diversos tamanhos e especificações técnicas.</p>
+                        <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Blocos%20de%20Concreto." class="card-link" target="_blank">
+                            Solicitar orçamento
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <img src="imagens/canaletas.jpg" alt="Canaletas" class="card-img zoom-img">
+                    <div class="card-body">
+                        <h3>Canaletas</h3>
+                        <p>Canaletas e meias-calhas em concreto para cintas, vergas e contravergas. Resistência e praticidade.</p>
+                        <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Canaletas." class="card-link" target="_blank">
+                            Solicitar orçamento
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <img src="imagens/bloquetes.jpg" alt="Bloquetes" class="card-img">
+                    <div class="card-body">
+                        <h3>Bloquetes</h3>
+                        <p>Bloquetes para calçadas, estacionamentos, pátios e áreas externas. Diversas cores e modelos.</p>
+                        <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20Bloquetes." class="card-link" target="_blank">
+                            Solicitar orçamento
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location" id="location">
+        <div class="location-inner">
+            <div class="reveal">
+                <p class="section-label">Localização</p>
+                <h2 class="section-heading">Onde Estamos</h2>
+                <p class="section-desc">Sede estratégica para atender com rapidez todo o Distrito Federal e entorno.</p>
+
+                <div class="loc-detail">
+                    <div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                    <div><h4>Park Way, Brasília - DF</h4><p>Atendimento para todo o DF e entorno</p></div>
+                </div>
+                <div class="loc-detail">
+                    <div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+                    <div><h4>Horário de Funcionamento</h4><p>Seg a Sex: 08:00 – 17:00<br>Sábado: 08:00 – 12:00</p></div>
+                </div>
+                <div class="loc-detail">
+                    <div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                    <div><h4>WhatsApp</h4><p>(61) 99267-9699</p></div>
+                </div>
+
+                <div class="loc-tags">
+                    <span class="loc-tag">🚚 Entrega Rápida</span>
+                    <span class="loc-tag">📦 Estoque Pronto</span>
+                    <span class="loc-tag">🏗️ Grandes Volumes</span>
+                    <span class="loc-tag">📐 Sob Medida</span>
+                </div>
+            </div>
+            <div class="location-map reveal">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.44!2d-47.9877829!3d-15.8862127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a397ba89570cf%3A0x984708f9c843f709!2sCardoso%20Pr%C3%A9-Moldados!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="cta-inner reveal">
+            <h2>Pronto para construir?</h2>
+            <p>Solicite seu orçamento agora. Resposta rápida pelo WhatsApp!</p>
+            <a href="https://wa.me/5561992679699?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20pré-moldados." class="btn-primary" target="_blank" style="font-size:1.1rem;padding:18px 40px">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Solicitar Orçamento no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        <img src="imagens/logo.jpg" alt="Logo">
+                        <span>Cardoso Pré-Moldados</span>
+                    </div>
+                    <p>Fabricação de blocos de concreto, canaletas, meias-calhas e bloquetes com qualidade comprovada para todo o DF.</p>
+                </div>
+                <div>
+                    <h5>Produtos</h5>
+                    <a href="#catalog">Blocos de Concreto</a>
+                    <a href="#catalog">Canaletas</a>
+                    <a href="#catalog">Bloquetes</a>
+                </div>
+                <div>
+                    <h5>Contato</h5>
+                    <a href="https://wa.me/5561992679699" target="_blank">📱 (61) 99267-9699</a>
+                    <p>📍 Park Way, Brasília - DF</p>
+                    <p>🕐 Seg a Sex · 08:00 – 17:00</p>
+                    <p>🕐 Sábado · 08:00 – 12:00</p>
+                    <a href="https://maps.app.goo.gl/DZ4xfc6Rin1j3MFt6" target="_blank" style="margin-top:8px">📌 Ver no Google Maps →</a>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Cardoso Pré-Moldados · Park Way, Brasília - DF · Todos os direitos reservados</div>
+        </div>
+    </footer>
+
+    <script>
+        const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+        
+        // Carousel Logic
+        let curSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let autoPlay = setInterval(() => goToSlide(curSlide + 1), 4500);
+
+        window.goToSlide = (n) => {
+            slides[curSlide].classList.remove('active');
+            dots[curSlide].classList.remove('active');
+            curSlide = (n + slides.length) % slides.length;
+            slides[curSlide].classList.add('active');
+            dots[curSlide].classList.add('active');
+            clearInterval(autoPlay);
+            autoPlay = setInterval(() => goToSlide(curSlide + 1), 4500);
+        };
+    </script>
+</body>
+</html>
